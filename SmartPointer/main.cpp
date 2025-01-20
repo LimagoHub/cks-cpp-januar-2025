@@ -15,29 +15,25 @@ public:
     }
 };
 
-//using MyClassPointer = std::shared_ptr<MyClass>;
+[[nodiscard]]
+auto source() -> std::unique_ptr<MyClass> {
+    auto result = std::make_unique<MyClass>();
+    return result;
+}
+
+auto sink(std::unique_ptr<MyClass> otto) {
+    otto->foo();
+
+}
 
 int main() {
 
-    /*
-    //std::shared_ptr<MyClass> myPtr = std::shared_ptr<MyClass>(new MyClass{5}) ;
-    auto myPtr = std::make_shared<MyClass>(5);
+    std::unique_ptr<MyClass> myPtr = source();
 
-    std::cout << myPtr.use_count() << std::endl;
-    {
-        std::shared_ptr<MyClass> otherPtr = myPtr;
-        std::cout << myPtr.use_count() << std::endl;
-    }
-    std::cout << myPtr.use_count() << std::endl;
-    myPtr->foo();
-    */
+    sink(std::move(myPtr));
 
-    //std::unique_ptr<MyClass> myPtr = std::unique_ptr<MyClass>(new MyClass);
-    auto myPtr = std::make_unique<MyClass>();
-    {
-        auto otherPtr = std::move(myPtr);
-    }
-    myPtr->foo();
+
+
     std::cout <<"Ende" << std::endl;
     return 0;
 }
