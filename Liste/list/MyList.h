@@ -28,7 +28,7 @@ namespace container {
             auto item = std::make_shared<Item>(text);
             if(isEmpty()) {
                 start = item;
-            } else 
+            } else
             {
                 moveToLast();
                 akt->nach = item;
