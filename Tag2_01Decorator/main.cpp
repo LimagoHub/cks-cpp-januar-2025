@@ -12,6 +12,7 @@ int main() {
 
     math::CalculatorFactory::setLogger(true);
     math::CalculatorFactory::setSecure(true);
+    math::CalculatorFactory::setBenchmark(true);
     Client client{math::CalculatorFactory::create()};
 
     client.go();

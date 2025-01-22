@@ -8,4 +8,5 @@ add_executable(Tag2_01Decorator main.cpp
         cllient/CalcClient.h
         math/CalculatorLogger.h
         math/CalculatorSecure.h
-        math/CalculatorFactory.h)
+        math/CalculatorFactory.h
+        math/CalculatorBenchmark.h)
